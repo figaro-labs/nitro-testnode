@@ -27,7 +27,7 @@ services:
         DATABASE_URL: postgresql://postgres:@postgres:5432/blockscout
         ECTO_USE_SSL: "false"
     ports:
-      - "127.0.0.1:4000:4000"
+      - "4000:4000"
 
   postgres:
     image: postgres:13.6
@@ -40,20 +40,20 @@ services:
     volumes:
       - "postgres-data:/var/lib/postgresql/data"
     ports:
-      - "127.0.0.1:7432:5432"
+      - "7432:5432"
 
   redis:
     image: redis:6.2.6
     ports:
-      - "127.0.0.1:6379:6379"
+      - "6379:6379"
 
   geth:
     image: ethereum/client-go:v1.10.23
     ports:
-      - "127.0.0.1:8545:8545"
-      - "127.0.0.1:8551:8551"
-      - "127.0.0.1:8546:8546"
-      - "127.0.0.1:30303:30303"
+      - "8545:8545"
+      - "8551:8551"
+      - "8546:8546"
+      - "30303:30303"
     volumes:
       - "l1data:/datadir"
       - "l1keystore:/keystore"
@@ -125,8 +125,8 @@ services:
       create_beacon_chain_genesis:
         condition: service_completed_successfully
     ports:
-      - "127.0.0.1:5000:5000"
-      - "127.0.0.1:3500:3500"
+      - "5000:5000"
+      - "3500:3500"
     volumes:
       - "consensus:/consensus"
       - "config:/config"
@@ -153,9 +153,9 @@ services:
     pid: host # allow debugging
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:8547:8547"
-      - "127.0.0.1:8548:8548"
-      - "127.0.0.1:9642:9642"
+      - "8547:8547"
+      - "8548:8548"
+      - "9642:9642"
     volumes:
       - "seqdata:/home/user/.arbitrum/local/nitro"
       - "l1keystore:/home/user/l1keystore"
@@ -169,8 +169,8 @@ services:
     pid: host # allow debugging
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:8647:8547"
-      - "127.0.0.1:8648:8548"
+      - "8647:8547"
+      - "8648:8548"
     volumes:
       - "seqdata_b:/home/user/.arbitrum/local/nitro"
       - "config:/config"
@@ -183,8 +183,8 @@ services:
     pid: host # allow debugging
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:8747:8547"
-      - "127.0.0.1:8748:8548"
+      - "8747:8547"
+      - "8748:8548"
     volumes:
       - "seqdata_c:/home/user/.arbitrum/local/nitro"
       - "config:/config"
@@ -197,8 +197,8 @@ services:
     pid: host # allow debugging
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:8847:8547"
-      - "127.0.0.1:8848:8548"
+      - "8847:8547"
+      - "8848:8548"
     volumes:
       - "seqdata_d:/home/user/.arbitrum/local/nitro"
       - "config:/config"
@@ -211,8 +211,8 @@ services:
     pid: host # allow debugging
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:8047:8547"
-      - "127.0.0.1:8048:8548"
+      - "8047:8547"
+      - "8048:8548"
     volumes:
       - "unsafestaker-data:/home/user/.arbitrum/local/nitro"
       - "l1keystore:/home/user/l1keystore"
@@ -227,8 +227,8 @@ services:
     pid: host # allow debugging
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:8147:8547"
-      - "127.0.0.1:8148:8548"
+      - "8147:8547"
+      - "8148:8548"
     volumes:
       - "poster-data:/home/user/.arbitrum/local/nitro"
       - "l1keystore:/home/user/l1keystore"
@@ -242,8 +242,8 @@ services:
     pid: host # allow debugging
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:9147:8547"
-      - "127.0.0.1:9148:8548"
+      - "9147:8547"
+      - "9148:8548"
     volumes:
       - "poster-data-b:/home/user/.arbitrum/local/nitro"
       - "l1keystore:/home/user/l1keystore"
@@ -257,8 +257,8 @@ services:
     pid: host # allow debugging
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:9247:8547"
-      - "127.0.0.1:9248:8548"
+      - "9247:8547"
+      - "9248:8548"
     volumes:
       - "poster-data-c:/home/user/.arbitrum/local/nitro"
       - "l1keystore:/home/user/l1keystore"
@@ -272,8 +272,8 @@ services:
     pid: host # allow debugging
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:8247:8547"
-      - "127.0.0.1:8248:8548"
+      - "8247:8547"
+      - "8248:8548"
     volumes:
       - "validator-data:/home/user/.arbitrum/local/nitro"
       - "l1keystore:/home/user/l1keystore"
@@ -287,8 +287,8 @@ services:
     pid: host # allow debugging
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:3347:3347"
-      - "127.0.0.1:3348:3348"
+      - "3347:3347"
+      - "3348:3348"
     volumes:
       - "validator-data:/home/user/.arbitrum/local/nitro"
       - "l1keystore:/home/user/l1keystore"
@@ -302,7 +302,7 @@ services:
     pid: host # allow debugging
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:8949:8549"
+      - "8949:8549"
     volumes:
       - "config:/config"
     command: --conf.file /config/validation_node_config.json
@@ -319,7 +319,7 @@ services:
     pid: host
     image: nitro-node-dev-testnode
     ports:
-      - "127.0.0.1:9652:9652"
+      - "9652:9652"
     entrypoint: bin/relay
     command: --node.feed.output.port 9652 --node.feed.input.url ws://sequencer:9652
 
