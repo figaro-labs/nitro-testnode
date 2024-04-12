@@ -67,11 +67,11 @@ services:
       - --authrpc.port=8551
       - --authrpc.addr=0.0.0.0
       - --http.vhosts=*
-      - --http.api=engine,personal,eth,net,web3
+      - --http.api=engine,personal,eth,net,web3,debug,miner,txpool,clique
       - --http.corsdomain=*
       - --ws
       - --ws.addr=0.0.0.0
-      - --ws.api=personal,eth,net,web3,debug,txpool
+      - --ws.api=personal,eth,net,web3,debug,txpool,miner,clique,engine
       - --allow-insecure-unlock
       - --unlock=0x3f1Eae7D46d88F08fc2F8ed27FCb2AB183EB2d0E
       - --password=/datadir/passphrase
